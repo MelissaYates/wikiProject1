@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous" />
+    <link href="{% static 'wikiApp/css/stylesheet.css' %}">
+    <title>Home</title>
+</head>
+<body>
+<header class=" bg-primary" id = "top">
+    <br>
+    <h1 class ="row align-items-center justify-content-center">DJango Wikipaedia Clone!</h1>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="{% url 'new_wiki_entry' %}">New Wiki Entry</a>
+                    </li>
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href= "{% url 'all_wiki' %}">Your Wiki Entries</a>
+                    </li>
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="{% url 'logout_user' %}">Log Out</a>
+                    </li>
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="{% url 'login_user' %}">Log In</a>
+                    </li>
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="{% url 'new_user' %}">New User</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <div class="form-main  form-inline nofloat-xs pull-left text-right">
+        <div class="col-lg-4 col-lg-offset-4">
+            <div class="input-group">
+                <form id="search_form" action="{% url 'search_box' %}" method="post">
+                    {% csrf_token %}
+                    <input id="search_bar" type="search" name = "query" placeholder="search all entries ..." class="form-control" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" name="submit" value="Search">Search</button>
+                    </span>
+                </form>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+    <br>
+    <h3 class ="row align-items-center justify-content-center">Welcome {{user.username}}</h3>
+
+</header>
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            {% block content %}
+
+            {% for article in articles %}
+            <section>
+                <a href="{% url 'individual_entry' article.id %}">{{article.title}}</a>
+                <br>
+                {{article.content}}
+                <hr>
+            </section>
+
+            {% if article.image %}
+            <p> <img src="{{ article.image.url }}" alt="image"></p>
+            {% endif %}
+            {% endfor %}
+
+            {% endblock %}
+        </div>
+        {% comment %} <div class="col-md-4">
+        <aside class="content-section">
+            Related Posts
+        </aside>
+    </div> {% endcomment %}
+    </div>
+</main>
+<br>
+<br>
+<br>
+<br>
+<!-- Footer -->
+<footer id="main-footer" class="py-4 bg-primary text-white text-center fixed-bottom">
+    <p class="m-0 text-dark text-center ">Copyright &copy; Melissa Yates</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+<!-- Content Goes here -->
+<h2>Recent Articles</h2>
+<br>
+{% for article in articles_list %}
+{% if article.image %}
+        <div>
+            <h3><a href="{% url 'individual_entry' article.id %}"> {{ article.title }}</a></h3>
+            <small>{{ article.author }} {{ article.date_posted|date:"F d, Y" }}</small>
+            <p> {{ article.content }}</p>
+        </div>
+        <div>
+            <img src="{{ article.image.url }}" alt="{{ article.title }}">
+        </div>
+        <br>
+
+    {% endif %}
+    <div>
+        <a href=" {% url 'edit' article.id %}">Edit Post</a>
+    </div>
+{% endfor %}
+
+<a href="{% url 'new_wiki_entry' %}">Create a new article</a>
+{% endblock content %}

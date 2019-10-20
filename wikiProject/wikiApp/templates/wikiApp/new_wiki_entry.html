@@ -1,0 +1,12 @@
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+<!-- Content Goes here -->
+<div>
+    <h3>New Post</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'all_wiki' %}"><button>Post</button></a>
+    </form>
+</div>
+{% endblock content %}

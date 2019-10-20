@@ -1,0 +1,31 @@
+
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+<h1>Log In</h1>
+<div>
+    {% for message in messages %}
+    <h4 style="color: red">{{message}}</h4>
+    {% endfor %}
+</div>
+
+<div>
+    {% for article in articles %}
+    <section>
+        <a href="{% url 'individual_entry' article.id %}">{{article.title}}</a>
+        <br>
+        {{article.content}}
+        <hr>
+    </section>
+
+    {% if article.image %}
+    <p> <img src="{{ article.image.url }}" alt="image"></p>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<form action="{% url 'login_user' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Log In</button>
+</form>
+{% endblock content %}

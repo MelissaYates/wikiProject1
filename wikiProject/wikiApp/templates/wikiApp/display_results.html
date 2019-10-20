@@ -1,0 +1,9 @@
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+<!-- Content Goes here -->
+<ul>
+    {% for element in results %}
+    <li>{{ element }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

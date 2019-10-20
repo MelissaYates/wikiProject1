@@ -1,0 +1,72 @@
+10/14/2019
+morning
+=======
+2019/10/14 at 11am
+
+
+What I've done? I have started making the skeleton of my wikpedia clone site.
+What will I do for the rest of the day? I will be working on my forms.py, models.py and views to ensure that they all contain the content that I would like for my website.
+
+Roadblocks-: still learning DJango. Not very confident in my understanding of it.
+
+Kenn Notes:
+You're making okay progress. Don't worry about styling right now. I know there was a misunderstanding about design/stying in the README. Go ahead and start adding the content and related content to each user.
+
+Thank you.
+=======
+afternoon
+What have I done? I have worked on some of my css, worked on my endpoints, models, and forms.
+What will I do for the rest of the day? Continue working on my views and ensure that the app works
+
+Roadblocks-: understanding the requirements
+
+**********************************************************
+
+10/15/2019
+morning at 11 am
+What have I done? Worked on my views.
+What will I do for the rest of the day? Continuing to work on my view to ensure that the functions are properly defined, call the right templates and render my html
+roadblocks: defining my functions....think I am confusing myself.
+
+<<<<<<< HEAD
+afternoon at 3 pm
+What have I done? Worked on my views.
+What will I do for the rest of the day? Debug
+roadblocks? editing errors
+**********************************************************
+=======
+Kenn Notes:
+PLEASE ask for help sooner. I can't tell how far you are because your code is not running on this push. If you don't have wiki posts working you're pretty far behind. Ask for help on Slack tonight as well.
+=======
+
+Kevin Notes Afternoon:
+- Check fields on user login page. Is email required?
+- I couldn't add wiki entries. There's quite a bit left to do but do NOT panic and copy in code from the web. draft/publish status was not part of this project.
+- User authentication seems to be working though. fix wiki management and link up with users.
+
+<<<<<<< HEAD
+10/16/2019
+morning @ 11
+What have I done? trying to resolve errors... all article entries are not displaying on landing page neither is all entries written by user showing on logged in user page
+What will I do for the rest of the day? Debug
+roadblocks? I can't figure out my error "Reverse for 'edit' with arguments '('',)' not found. 1 pattern(s) tried: ['edit\\/(?P<id>[0-9]+)\\/$']"
+**********************************************************
+
+=========
+Thomas' Notes:
+I tried to create a new entry and it returns multivaluedictkeyerror 'status' make sure that when you reference a piece to save
+you are refering to the field by the proper name. Otherwise it won't be able to recognize what you're trying to save and cause issues.
+If you still have trouble with the Reverse for edit error Please ask for help. Thank you for commenting!
+=========
+
+What have I done? all article entries are now displaying on landing page but still working on having is all entries written by user show on logged in user page
+What will I do for the rest of the day? Debug
+roadblocks? Still can't figure out my error "Reverse for 'edit' with arguments '('',)' not found. 1 pattern(s) tried: ['edit\\/(?P<id>[0-9]+)\\/$']"
+
+**********************************************************
+<<<<<<< HEAD
+10/17/2019
+morning @ 11
+What I have done? resolved errors that I was experiencing yesterday "Reverse for 'edit' with arguments '('',)' not found. 1 pattern(s) tried: ['edit\\/(?P<id>[0-9]+)\\/$']"
+What will I do for the rest of the day? ensure that my search box searches queries, styling and do my related posts section
+Roadblocks? understanding and implementing the filter function to search queries

@@ -1,0 +1,16 @@
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+<!-- Content Goes here -->
+<h2>Edit Article</h2>
+<h3> {{ article }}</h3>
+{% if author == user.username %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Update Main Entry</button>
+    </form>
+{% else %}
+    <h4>Sorry, you are not allowed to edit this article!</h4>
+{% endif %}
+{% endblock content %}
+

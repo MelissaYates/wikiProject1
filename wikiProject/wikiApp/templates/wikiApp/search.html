@@ -1,0 +1,15 @@
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+
+<h1>Search Results:</h1>
+{%for each in lists%}
+<li>
+    <a href="{% url 'display_results' each.id %}">{{each.Title}}</a>
+    <br>
+    {{each.Post}}
+</li>
+{%endfor%}
+
+{% endblock content %}
+
+

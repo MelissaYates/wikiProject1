@@ -1,0 +1,16 @@
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+<h2>Welcome New User</h2>
+<h3>Sign up to create an account</h3>
+<h4 style="color: red">{{errors}}</h4>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a href="{% url 'index' %}"><button class = "btn btn-outline-info" type="submit">Sign Up</button></a>
+</form>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Already have an Account? <a class="ml-2" href="{% url 'login_user' %}">Sign In</a>
+    </small>
+</div>
+{% endblock content %}

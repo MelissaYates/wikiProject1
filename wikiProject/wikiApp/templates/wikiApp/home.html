@@ -1,0 +1,10 @@
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+
+{% for article in articles %}
+
+{{each.title}} {{each.content}}
+
+{% endfor %}
+
+{% endblock content %}

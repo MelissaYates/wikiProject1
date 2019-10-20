@@ -1,0 +1,20 @@
+{% extends 'wikiApp/index.html' %}
+{% block content %}
+<section>
+    {% if user.is_authenticated %}
+        <h1>Welcome {{user.username}}</h1>
+    {{article.title}}
+    <br>
+    {{article.name}}
+    <br>
+    {{article.content}}
+    {% else %}
+        <h1>Please Log in to access this page</h1>
+        <a href="{% url 'login_user' %}"><button>Log In</button></a>
+    {% endif %}
+</section>
+<aside>
+
+</aside>
+
+{% endblock content %}
